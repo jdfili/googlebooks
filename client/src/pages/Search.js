@@ -36,7 +36,7 @@ class Search extends Component {
       synopsis: post[0].volumeInfo.description,
       thumbnail: post[0].volumeInfo.imageLinks.thumbnail
     }).then(res =>
-      console.log(res)
+      alert("Saved to your library!")
       )
       .catch(err => console.log(err))
     // API.saveBook(data)
