@@ -18,6 +18,13 @@ class Saved extends Component {
       console.log(this.state.saved);
     }).catch(err => console.log(err))
   };
+  delete = (id) => {
+    API.deleteBook(id)
+      .then(res => {
+        this.loadBooks();
+      })
+      .catch(err => console.log(err))
+  }
   render() {
     return (
       <div>
@@ -32,6 +39,8 @@ class Saved extends Component {
                   title={book.title}
                   authors={book.authors}
                   description={book.synopsis}
+                  id={book._id}
+                  onClick={this.delete}
                 />
               </div>
             )
