@@ -3,7 +3,7 @@ import Container from "../components/Container";
 import Form from "../components/Form";
 import Jumbotron from "../components/Jumbotron";
 import Nav from "../components/Nav";
-import Results from "../components/Results-container";
+import BookItem from "../components/BookItem";
 import Button from "../components/Button"
 import API from "../utils/API";
 
@@ -33,7 +33,8 @@ class Search extends Component {
     API.saveBook({
       title: post[0].volumeInfo.title,
       authors: post[0].volumeInfo.authors,
-      synopsis: post[0].volumeInfo.description
+      synopsis: post[0].volumeInfo.description,
+      thumbnail: post[0].volumeInfo.imageLinks.thumbnail
     }).then(res =>
       console.log(res)
       )
@@ -63,7 +64,7 @@ class Search extends Component {
         {this.state.results.map(res => {
           return (
             <div>
-              <Results
+              <BookItem
                 id={res.id}
                 imageLinks={res.volumeInfo.imageLinks ? res.volumeInfo.imageLinks.thumbnail : "http://placekitten.com/200/300"}
                 title={res.volumeInfo.title ? res.volumeInfo.title : "No title to display"}
