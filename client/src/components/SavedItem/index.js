@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../Button'
+import DeleteBtn from '../DeleteBtn';
 function SavedItem(props){
     return (
         <div>
@@ -8,7 +8,7 @@ function SavedItem(props){
             <h4>{props.title}</h4>
             <h5>{props.authors}</h5>
             <p>{props.description}</p>
-            <Button onClick={()=>props.onClick(props.id)}>Delete</Button>
+            <DeleteBtn onClick={()=>props.onClick(props.id)}>Delete</DeleteBtn>
         </div>
         </div>
     )
